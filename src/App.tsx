@@ -201,12 +201,14 @@ const Navbar = ({ isDark, setIsDark, onQuoteClick }: { isDark: boolean, setIsDar
     <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 dark:bg-slate-950/80 backdrop-blur-md py-4 shadow-sm' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         <div className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-brand-600 rounded-lg flex items-center justify-center shadow-lg">
-            <Code2 className="text-white w-6 h-6" />
-          </div>
-          <span className={`text-xl font-bold tracking-tight ${isScrolled ? 'text-slate-900 dark:text-white' : 'text-slate-900 dark:text-white'}`}>
-            LibMon <span className="text-brand-500">Global</span> Technologies
-          </span>
+          <a href="#" className="flex items-center gap-2 group transition-opacity hover:opacity-80">
+            <div className="w-10 h-10 bg-brand-600 rounded-lg flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
+              <Code2 className="text-white w-6 h-6" />
+            </div>
+            <span className={`text-xl font-bold tracking-tight ${isScrolled ? 'text-slate-900 dark:text-white' : 'text-slate-900 dark:text-white'}`}>
+              LibMon <span className="text-brand-500">Global</span> Technologies
+            </span>
+          </a>
         </div>
 
         {/* Desktop Menu */}
@@ -350,10 +352,10 @@ const Hero = ({ onQuoteClick }: { onQuoteClick: () => void }) => {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
           >
-            <button className="px-7 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-950 rounded-full font-semibold flex items-center justify-center gap-2 hover:bg-brand-600 dark:hover:bg-brand-500 hover:text-white transition-all group shadow-lg hover:scale-105 active:scale-95">
+            <a href="#work" className="px-7 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-950 rounded-full font-semibold flex items-center justify-center gap-2 hover:bg-brand-600 dark:hover:bg-brand-500 hover:text-white transition-all group shadow-lg hover:scale-105 active:scale-95">
               Explore Projects
               <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
+            </a>
             <button 
               onClick={onQuoteClick}
               className="px-7 py-3 bg-slate-900 dark:bg-white dark:text-slate-950 text-white rounded-full font-semibold flex items-center justify-center gap-2 hover:bg-brand-600 dark:hover:bg-brand-500 hover:text-white transition-all group shadow-lg hover:scale-105 active:scale-95"
@@ -614,7 +616,7 @@ const About = () => {
               >
                 <img 
                   src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&q=80&w=800" 
-                  alt="Tech in Africa" 
+                  alt="Software development for the Liberian global community at LibMon" 
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                   referrerPolicy="no-referrer"
                 />
@@ -629,7 +631,7 @@ const About = () => {
               >
                 <img 
                   src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800" 
-                  alt="Code Development" 
+                  alt="Advanced software engineering and infrastructure building by LibMon Global" 
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                   referrerPolicy="no-referrer"
                 />
@@ -1121,8 +1123,24 @@ const Contact = () => {
             </div>
             
             <div className="flex justify-center md:justify-start gap-4 pt-6">
-              <a href="#" className="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-slate-900 dark:hover:bg-brand-600 hover:text-white transition-all"><Linkedin size={20} /></a>
-              <a href="#" className="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-slate-900 dark:hover:bg-brand-600 hover:text-white transition-all"><Github size={20} /></a>
+              <a 
+                href="https://www.linkedin.com/search/results/all/?keywords=LibMon%20Global%20Technologies" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                title="Search LibMon Global on LinkedIn"
+                className="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-slate-900 dark:hover:bg-brand-600 hover:text-white transition-all"
+              >
+                <Linkedin size={20} />
+              </a>
+              <a 
+                href="https://github.com/search?q=LibMon+Global+Technologies" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                title="Search LibMon Global on GitHub"
+                className="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-slate-900 dark:hover:bg-brand-600 hover:text-white transition-all"
+              >
+                <Github size={20} />
+              </a>
             </div>
           </div>
           
@@ -1166,16 +1184,16 @@ const Contact = () => {
 
 const Footer = () => {
   const socials = [
-    { name: 'Facebook', icon: <Facebook size={18} />, href: '#' },
-    { name: 'TikTok', icon: <Music size={18} />, href: '#' },
-    { name: 'YouTube', icon: <Youtube size={18} />, href: '#' },
-    { name: 'Instagram', icon: <Instagram size={18} />, href: '#' },
-    { name: 'X', icon: <Twitter size={18} />, href: '#' },
-    { name: 'LinkedIn', icon: <Linkedin size={18} />, href: '#' },
+    { name: 'Facebook', icon: <Facebook size={18} />, href: 'https://www.facebook.com/search/top/?q=LibMon%20Global%20Technologies' },
+    { name: 'TikTok', icon: <Music size={18} />, href: 'https://www.tiktok.com/search?q=LibMon%20Global%20Technologies' },
+    { name: 'YouTube', icon: <Youtube size={18} />, href: 'https://www.youtube.com/results?search_query=LibMon+Global+Technologies' },
+    { name: 'Instagram', icon: <Instagram size={18} />, href: 'https://www.instagram.com/explore/tags/libmonglobal/' },
+    { name: 'X', icon: <Twitter size={18} />, href: 'https://twitter.com/search?q=LibMon%20Global%20Technologies' },
+    { name: 'LinkedIn', icon: <Linkedin size={18} />, href: 'https://www.linkedin.com/search/results/all/?keywords=LibMon%20Global%20Technologies' },
   ];
 
   return (
-    <footer className="py-12 border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950">
+    <footer className="py-12 border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950 relative z-10">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-8">
           <div className="flex items-center gap-2">
@@ -1190,7 +1208,10 @@ const Footer = () => {
               <a 
                 key={social.name}
                 href={social.href}
-                className="w-10 h-10 rounded-full bg-slate-50 dark:bg-slate-900 flex items-center justify-center text-slate-400 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-brand-50 dark:hover:bg-brand-900/20 transition-all shadow-sm"
+                target="_blank"
+                rel="noopener noreferrer"
+                title={social.name}
+                className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-500 hover:text-white hover:bg-brand-600 dark:hover:bg-brand-600 transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1"
                 aria-label={social.name}
               >
                 {social.icon}
@@ -1199,8 +1220,8 @@ const Footer = () => {
           </div>
           
           <div className="flex gap-8">
-            <a href="#" className="text-slate-400 hover:text-brand-600 text-sm font-medium transition-colors">Privacy</a>
-            <a href="#" className="text-slate-400 hover:text-brand-600 text-sm font-medium transition-colors">Terms</a>
+            <button className="text-slate-400 hover:text-brand-600 text-sm font-medium transition-colors cursor-pointer">Privacy</button>
+            <button className="text-slate-400 hover:text-brand-600 text-sm font-medium transition-colors cursor-pointer">Terms</button>
           </div>
         </div>
 

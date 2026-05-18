@@ -2,5 +2,7 @@
   "name": "LibMon Global Technologies",
   "description": "Professional software development agency specializing in full-stack solutions for entrepreneurs and the Liberian global community.",
   "requestFramePermissions": [],
-  "majorCapabilities": []
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }
